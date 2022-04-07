@@ -44,22 +44,23 @@ const IconText = ({ icon, text }) => (
 );
 
 export const FormComment = () => {
+    let [commentValue, setCommentValue] = useState(null)
+    let commentFieldValue = ''
   const onFinish = (values) => {
     console.log(values);
     setCommentValue(commentValue=values)
-    console.log(JSON.stringify(commentValue) +'lskdla')
-    let obj=JSON.stringify(commentValue)
-    console.log(JSON.parse(obj) +'vvvvvv')
+    console.log(commentValue.user.introduction)
+     commentFieldValue = commentValue.user.introduction
+     console.log(typeof commentFieldValue)
   };
-  let [commentValue, setCommentValue] = useState(null)
+
   const listData = [];
   for (let i = 0; i < 23; i++) {
     listData.push({
       href: 'https://ant.design',
       title: `ant design part ${i}`,
       avatar: 'https://joeschmoe.io/api/v1/random',
-      description:
-        'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+      description: `${commentFieldValue}`,
       content:'' });
   }
 
